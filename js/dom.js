@@ -7,7 +7,7 @@ Scandio.dom = {};
 
 // Closes and secures a cache module with within its own scope
 // *Note:* This function being an IIFE leaves of parameters on outer function
-Scandio.dom.cache = (function(jQuery, Scandio){
+Scandio.dom.cache = (function($, Scandio){
    // Sets up local cache store
    var
       cache = {},
@@ -19,7 +19,7 @@ Scandio.dom.cache = (function(jQuery, Scandio){
          for (label in cache) {
             l = (coll = cache[label]).length;
             while (l--) {
-               if (coll[l] === t || jQuery.contains(t,coll[l])) {
+               if (coll[l] === t || $.contains(t,coll[l])) {
                   delete coll[l]; --coll.length;
                }
             }
@@ -32,12 +32,12 @@ Scandio.dom.cache = (function(jQuery, Scandio){
          if (Scandio.isString(label)) {
             //Reset cache value at label
             if(cache[label] !== undefined) {
-               cache[label] = jQuery(cache[label].selector || '');
+               cache[label] = $(cache[label].selector || '');
             }
          } else {
             // For each value in cache refresh it
             Scandio.util.each(cache, function($cached, label) {
-               cache[label] = jQuery($cached.selector);
+               cache[label] = $($cached.selector);
             });
          }
       },
@@ -47,7 +47,7 @@ Scandio.dom.cache = (function(jQuery, Scandio){
          // Both label and selector passed, cache/dom reading...
          if (Scandio.isString(selector) && Scandio.isString(label)) {
             // ...either from cache or DOM
-            cache[label] = cache[label] || jQuery(selector);
+            cache[label] = cache[label] || $(selector);
          }
 
          // What the callee gets: a jQuery object
@@ -55,11 +55,11 @@ Scandio.dom.cache = (function(jQuery, Scandio){
       };
 
    // Bind to node removal in DOM
-   jQuery(document).on('DOMNodeRemoved', nodeRemoved);
+   $(document).on('DOMNodeRemoved', nodeRemoved);
 
    // Return public functions in object literal
    return {
       get: get,
       update: update
    };
-}(jQuery, Scandio));
+}($, Scandio));
