@@ -1,6 +1,6 @@
 # [Scandiojs](http://scandio.de/) - A little bit of help
 
-[![Build Status](https://travis-ci.org/scandio/scandiojs.png?branch=master)](https://travis-ci.org/scandio/scandiojs)
+[![Build Status](https://travis-ci.org/SEP007/scandiojs.png)](https://travis-ci.org/SEP007/scandiojs)
 
 ## You only want to use scandiojs
 

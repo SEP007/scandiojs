@@ -1,6 +1,8 @@
 language: node_js
 notifications:
-   email: false
+  email: false
+  hipchat:
+    - secure: "RSez0m784aWEMG58SE6CKuLKCOfc21FcBI6GFaXvyJTVfX4qBCoGvLZSaN6MyIPht3V22db61jWVTAcV5Vf7DriX0CRbUi1jpueiU/4DRdj1B2QHGPS5jgoL/XNsLXF1pzhNgZ9qmQ1wMi5sI2zBeRYVZxmTgyhPDs9DAYIQipA="
 node_js:
    - "0.10"
 before_install:
